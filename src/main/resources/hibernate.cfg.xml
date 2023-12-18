@@ -14,6 +14,6 @@
         <property name="hbm2ddl.auto">update</property>
         <property name="hibernate.connection.isolation">2</property>
         <mapping class="org.example.Book" />
-        <mapping class="org.example.Author" />
+<!--        <mapping class="org.example.Author" />-->
     </session-factory>
 </hibernate-configuration>

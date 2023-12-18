@@ -1,9 +1,21 @@
 package org.example;
 
 import javax.persistence.*;
-
+//
+// * Задания необходимо выполнять на ЛЮБОЙ СУБД (postgres, mysql, sqllite, h2, ...)
+// *
+// * 1. С помощью JDBC выполнить:
+// * 1.1 Создать таблицу book с колонками id bigint, name varchar, author varchar, ...
+// * 1.2 Добавить в таблицу 10 книг
+// * 1.3 Сделать запрос select from book where author = 'какое-то имя' и прочитать его с помощью ResultSet
+// *
+// * 2. С помощью JPA(Hibernate) выполнить:
+// * 2.1 Описать сущность Book из пункта 1.1
+// * 2.2 Создать Session и сохранить в таблицу 10 книг
+// * 2.3 Выгрузить список книг какого-то автора
+// *
 @Entity
-@Table(name = "books")
+@Table(name = "book")
 public class Book {
 
     public Book() {

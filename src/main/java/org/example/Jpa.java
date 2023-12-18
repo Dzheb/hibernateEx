@@ -20,7 +20,7 @@ public class Jpa {
     public static void main(String[] args) {
 
         Connector connector = new Connector();
- //  insertData(connector);
+//   insertData(connector);
         selectData(connector);
     }
 
@@ -28,8 +28,6 @@ public class Jpa {
     private static void insertData(Connector connector) {
         try (Session session = connector.getSession()) {
             session.beginTransaction();
-            Author author = new Author("Лев Толстой");
-            session.save(author);
             Book book = new Book("Семейное счастие", "Лев Толстой", 1859);
             session.save(book);
             book = new Book("Война и мир", "Лев Толстой", 1865);
@@ -38,8 +36,6 @@ public class Jpa {
             session.save(book);
             book = new Book("Воскресение", "Лев Толстой", 1889);
             session.save(book);
-            author = new Author("Николай Гоголь");
-            session.save(author);
             book = new Book("Женитьба", "Николай Гоголь", 1842);
             session.save(book);
             book = new Book("Мёртвые души", "Николай Гоголь", 1842);
@@ -50,8 +46,6 @@ public class Jpa {
             session.save(book);
             book = new Book("Женитьба", "Николай Гоголь", 1842);
             session.save(book);
-            author = new Author("Фёдор Достоевский");
-            session.save(author);
             book = new Book("Бедные люди", "Фёдор Достоевский", 1846);
             session.save(book);
             session.getTransaction().commit();
@@ -63,7 +57,7 @@ public class Jpa {
 
         try (Session session = connector.getSession()) {
             session.beginTransaction();
-            List<Book> books = session.createQuery("SELECT b FROM Book b WHERE b.author = 'Лев Толстой'" +
+            List<Book> books = session.createQuery("SELECT b FROM Book b WHERE author = 'Лев Толстой'" +
                             " ORDER BY year DESC", Book.class)
                     .getResultList();
             books.forEach(System.out::println);
